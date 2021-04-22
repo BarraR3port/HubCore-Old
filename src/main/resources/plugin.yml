@@ -1,0 +1,15 @@
+name: HubCore
+version: 1.0
+main: cl.bebt.hubcore.main
+api-version: 1.13
+authors: [ BarraR3port ]
+website: https://github.com/BarraR3port
+softdepend: [ StaffCore ]
+commands:
+  setspawn:
+  spawn:
+  removespawn:
+  spawnmobs:
+  edithub:
+  test:
+  hubcore:

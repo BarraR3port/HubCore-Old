@@ -1,0 +1,32 @@
+#            _    _       _      _____
+#           | |  | |     | |    / ____|      EN_NA
+#           | |__| |_   _| |__ | |     ___  _ __ ___
+#           |  __  | | | | '_ \| |    / _ \| '__/ _ \
+#           | |  | | |_| | |_) | |___| (_) | | |  __/
+#           |_|  |_|\__,_|_.__/ \_____\___/|_|  \___|  1.0
+
+# Random stuff
+server_prefix: "&7[&aHubCore&7] "
+wrong_command: "&cWrong Usage, use &a%command%"
+no_permission: "&cYou don't have permission to use this command"
+p_dont_exist: "&cThe player %player% does not exist"
+only_players: "&cOnly players are allowed to use this command"
+spawnmobs: "&7Mob Spawning set to: %boolean%"
+# Spawn
+spawn:
+  set: "&7Spawn set"
+  notset: "&cNo spawn set, please set one using /setspawn"
+  removed: "&7Spawn removed"
+  tp_to_spawn: "&7You have teleported to spawn"
+  tp_player_to_spawn: "&7You have teleported &2%player% &ato spawn"
+
+# EditHub
+edithub:
+  enabled: "&7Now you can edit the hub"
+  enabled_other: "&7Now &a%player% &7can edit the hub"
+  disabled: "&cNow you can't edit the hub"
+  disabled_other: "&cNow %player% can't edit the hub"
+# Connection
+serverconnection:
+  connecting: "&7Connecting to &a%server%"
+  could_not_connect: "&cCouldn't connect to %server%"

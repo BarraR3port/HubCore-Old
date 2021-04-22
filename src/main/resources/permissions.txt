@@ -1,0 +1,7 @@
+hubcore.home.tp
+hubcore.home.tp.others
+hubcore.home.remove
+hubcore.home.remove.others
+hubcore.edit-hub
+hubcore.toggle.spawn-mobs
+hubcore.use-any-command

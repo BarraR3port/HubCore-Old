@@ -1,0 +1,83 @@
+#            _    _       _      _____
+#           | |  | |     | |    / ____|
+#           | |__| |_   _| |__ | |     ___  _ __ ___
+#           |  __  | | | | '_ \| |    / _ \| '__/ _ \
+#           | |  | | |_| | |_) | |___| (_) | | |  __/
+#           |_|  |_|\__,_|_.__/ \_____\___/|_|  \___|  1.0
+
+
+# ------------> BungeeCord <--------------
+# For using this, you will need to have enabled the mysql otherwise it won't work and may show up some errors
+# This is meant to notify all your StaffMembers about the Ban Alerts, Report Alerts, and so on.
+# The Mysql is needed cuz that's where the plugin is going to get all the data like: the reason, the name...
+bungeecord:
+  enabled: true # By default is set to true, otherwise, the plugin won't work
+  server: "lobby" # This is the name of the server(default: lobby)!
+  server_prefix: " &7[&a%server%&7] "
+
+# ------------> Language <--------------
+# Select the Language you want to use (Currently supported: EN_NA & ES_CL)
+language: "EN_NA"
+
+# ------------> Random Configs <--------------
+# Here are random Configs that are alone.
+spawnmobs: false
+
+
+# ------------> Spawn Settings <--------------
+# Spawn Settings
+spawn:
+  world:
+  x:
+  y:
+  z:
+  tp_on_join: true
+
+# ------------> Blocked Commands <--------------
+blocked_commands:
+  - ""
+
+# ------------> Server Selector <--------------
+server_selector:
+  name_of_gui: "&2Server Selector"
+  slots: 27 # Only multiples of 9
+  panel: "LIGHT_GRAY_STAINED_GLASS_PANE" # The color of the panel
+  amount_of_servers: 3
+  servers:
+    1:
+      item: "TOTEM_OF_UNDYING"
+      name: "&aLOBBY"
+      enchanted: true
+      slot: 10
+      server: "lobby" # This has to be the same as the Bungeecord
+      lore:
+        - "&7Online players: %players%"
+        - "&7Status: %status%"
+        - "&7This is random"
+        - "&7Lore, put what ever"
+        - "&0You like"
+    2:
+      item: "BLAZE_ROD"
+      name: "&aHCF"
+      enchanted: true
+      slot: 13
+      server: "hcf" # This has to be the same as the Bungeecord
+      lore:
+        - "&7Online players: %players%"
+        - "&7Status: %status%"
+        - "&7This is random"
+        - "&7Lore, put what ever"
+        - "&0You like"
+    3:
+      item: "LEAD"
+      name: "&aPractice"
+      enchanted: true
+      slot: 16
+      server: "lobby2" # This has to be the same as the Bungeecord
+      lore:
+        - "&7Online players: %players%"
+        - "&7Status: %status%"
+        - "&7This is random"
+        - "&7Lore, put what ever"
+        - "&0You like"
+
