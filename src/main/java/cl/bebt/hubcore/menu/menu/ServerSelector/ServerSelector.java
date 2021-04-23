@@ -22,12 +22,12 @@ public class ServerSelector extends Menu {
     
     @Override
     public String getMenuName( ){
-        return utils.chat( utils.getConfig( "server_selector.name_of_gui" ) );
+        return utils.chat( utils.getItemString( "server_selector.name" ) );
     }
     
     @Override
     public int getSlots( ){
-        return utils.getInt( "server_selector.slots" );
+        return utils.getItemInt( "server_selector.slots" );
     }
     
     @Override
@@ -44,17 +44,17 @@ public class ServerSelector extends Menu {
     
     @Override
     public void setMenuItemsPlayer( Player p ){
-        for ( int servers = 1; servers <= utils.getInt( "server_selector.amount_of_servers" ); servers++ ) {
-            getInventory( ).setItem( utils.getInt( "server_selector.servers." + servers + ".slot" ) ,
-                    makeItem( utils.getConfig( "server_selector.servers." + servers + ".item" ) ,
-                            utils.getConfig( "server_selector.servers." + servers + ".name" ) ,
-                            utils.getBoolean( "server_selector.servers." + servers + ".enchanted" ) ,
-                            utils.getConfig( "server_selector.servers." + servers + ".server" ) ,
+        for ( int servers = 1; servers <= utils.getItemInt( "server_selector.amount_of_servers" ); servers++ ) {
+            getInventory( ).setItem( utils.getItemInt( "server_selector.servers." + servers + ".slot" ) ,
+                    makeItem( utils.getItemString( "server_selector.servers." + servers + ".item" ) ,
+                            utils.getItemString( "server_selector.servers." + servers + ".name" ) ,
+                            utils.getItemBoolean( "server_selector.servers." + servers + ".enchanted" ) ,
+                            utils.getItemString( "server_selector.servers." + servers + ".server" ) ,
                             utils.getLore( servers ) ) );
         }
         for ( int i = 0; i < getSlots( ); i++ ) {
             if ( getInventory( ).getItem( i ) == null ) {
-                getInventory( ).setItem( i , makeItem( Material.valueOf( utils.getConfig( "server_selector.panel" ) ) , " " ) );
+                getInventory( ).setItem( i , makeItem( Material.valueOf( utils.getItemString( "server_selector.panel" ) ) , " " ) );
             }
         }
     }

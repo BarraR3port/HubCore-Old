@@ -5,3 +5,5 @@ hubcore.home.remove.others
 hubcore.edit-hub
 hubcore.toggle.spawn-mobs
 hubcore.use-any-command
+hubcore.reload
+hubcore.staff

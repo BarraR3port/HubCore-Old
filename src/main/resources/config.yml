@@ -37,47 +37,18 @@ spawn:
 blocked_commands:
   - ""
 
-# ------------> Server Selector <--------------
-server_selector:
-  name_of_gui: "&2Server Selector"
-  slots: 27 # Only multiples of 9
-  panel: "LIGHT_GRAY_STAINED_GLASS_PANE" # The color of the panel
-  amount_of_servers: 3
-  servers:
-    1:
-      item: "TOTEM_OF_UNDYING"
-      name: "&aLOBBY"
-      enchanted: true
-      slot: 10
-      server: "lobby" # This has to be the same as the Bungeecord
-      lore:
-        - "&7Online players: %players%"
-        - "&7Status: %status%"
-        - "&7This is random"
-        - "&7Lore, put what ever"
-        - "&0You like"
-    2:
-      item: "BLAZE_ROD"
-      name: "&aHCF"
-      enchanted: true
-      slot: 13
-      server: "hcf" # This has to be the same as the Bungeecord
-      lore:
-        - "&7Online players: %players%"
-        - "&7Status: %status%"
-        - "&7This is random"
-        - "&7Lore, put what ever"
-        - "&0You like"
-    3:
-      item: "LEAD"
-      name: "&aPractice"
-      enchanted: true
-      slot: 16
-      server: "lobby2" # This has to be the same as the Bungeecord
-      lore:
-        - "&7Online players: %players%"
-        - "&7Status: %status%"
-        - "&7This is random"
-        - "&7Lore, put what ever"
-        - "&0You like"
+# ------------> Blocked Commands <--------------
+launchpad:
+  enabled: true
+  pressure_plate: "STONE_PRESSURE_PLATE"
+  block_under: "REDSTONE_BLOCK"
+  power: 2 # The of the launch pad
 
+# ------------> Custom Sounds <--------------
+# Here is a list of all the sounds: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+sounds: true
+custom_sounds:
+  launchpad: "ENTITY_IRON_GOLEM_ATTACK"
+
+# ------------> PARTICLES <----------
+# Here is a list of all the particles available: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Effect.html

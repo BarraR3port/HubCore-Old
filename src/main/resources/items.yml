@@ -1,0 +1,65 @@
+#            _    _       _      _____
+#           | |  | |     | |    / ____|
+#           | |__| |_   _| |__ | |     ___  _ __ ___
+#           |  __  | | | | '_ \| |    / _ \| '__/ _ \
+#           | |  | | |_| | |_) | |___| (_) | | |  __/
+#           |_|  |_|\__,_|_.__/ \_____\___/|_|  \___|  1.0
+
+
+# ------------> Server Selector <--------------
+# You can add as much items as you want, just consider that you need to change the slots in case you ran over slots
+# in the inventory. The slots needs to be in multiples of 9, otherwise the plugins will crash.
+# I leave 3 items as examples. The amount_of_servers needs to have the same number as items you created
+server_selector:
+  item: "COMPASS"
+  name: "&2Server Selector"
+  slots: 27 # Only multiples of 9
+  panel: "LIGHT_GRAY_STAINED_GLASS_PANE" # The color of the panel
+  amount_of_servers: 3
+  servers:
+    1:
+      item: "TOTEM_OF_UNDYING"
+      name: "&aLOBBY"
+      enchanted: true
+      slot: 10
+      server: "lobby" # This has to be the same as the Bungeecord
+      lore:
+        - "&7Online players: %players%"
+        - "&7Status: %status%"
+        - "&7This is random"
+        - "&7Lore, put what ever"
+        - "&0You like"
+    2:
+      item: "BLAZE_ROD"
+      name: "&aHCF"
+      enchanted: true
+      slot: 13
+      server: "hcf" # This has to be the same as the Bungeecord
+      lore:
+        - "&7Online players: %players%"
+        - "&7Status: %status%"
+        - "&7This is random"
+        - "&7Lore, put what ever"
+        - "&0You like"
+    3:
+      item: "LEAD"
+      name: "&aPractice"
+      enchanted: true
+      slot: 16
+      server: "lobby2" # This has to be the same as the Bungeecord
+      lore:
+        - "&7Online players: %players%"
+        - "&7Status: %status%"
+        - "&7This is random"
+        - "&7Lore, put what ever"
+        - "&0You like"
+
+hide_players:
+  item: "GRAY_DYE"
+  name: "&aHide Players"
+  amount: 1
+
+show_players:
+  item: "LIME_DYE"
+  name: "&aShow Players"
+  amount: 1

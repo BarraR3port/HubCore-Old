@@ -19,7 +19,6 @@ spawn:
   removed: "&7Spawn removed"
   tp_to_spawn: "&7You have teleported to spawn"
   tp_player_to_spawn: "&7You have teleported &2%player% &ato spawn"
-
 # EditHub
 edithub:
   enabled: "&7Now you can edit the hub"

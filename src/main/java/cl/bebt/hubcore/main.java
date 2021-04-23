@@ -6,9 +6,9 @@ import cl.bebt.hubcore.commands.*;
 import cl.bebt.hubcore.configs.EN_NA;
 import cl.bebt.hubcore.configs.ES_CL;
 import cl.bebt.hubcore.configs.items;
-import cl.bebt.hubcore.configs.locationsConfig;
 import cl.bebt.hubcore.listerners.HubEvents;
 import cl.bebt.hubcore.listerners.PlayerJoin;
+import cl.bebt.hubcore.listerners.PlayerMoves;
 import cl.bebt.hubcore.menu.Menu;
 import cl.bebt.hubcore.menu.PlayerMenuUtility;
 import cl.bebt.hubcore.menu.listeners.MenuListener;
@@ -29,20 +29,11 @@ public final class main extends JavaPlugin {
     public static main plugin;
     public static HashMap < String, Integer > playersInServers = new HashMap <>( );
     public static HashMap < String, Boolean > serversStatus = new HashMap <>( );
-    public locationsConfig locationsConfig;
     public EN_NA en_na;
     public ES_CL es_cl;
     public items items;
     public ArrayList < Player > editHub = new ArrayList <>( );
     ConsoleCommandSender c = Bukkit.getConsoleSender( );
-    
-    public static PlayerMenuUtility getPlayerMenuUtility( Player p ){
-        if ( playerMenuUtilityMap.containsKey( p ) )
-            return playerMenuUtilityMap.get( p );
-        PlayerMenuUtility playerMenuUtility = new PlayerMenuUtility( p );
-        playerMenuUtilityMap.put( p , playerMenuUtility );
-        return playerMenuUtility;
-    }
     
     @Override
     public void onEnable( ){
@@ -79,6 +70,7 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager( ).registerEvents( new PlayerJoin( plugin ) , plugin );
         Bukkit.getPluginManager( ).registerEvents( new HubEvents( plugin ) , plugin );
         Bukkit.getPluginManager( ).registerEvents( new MenuListener( ) , plugin );
+        Bukkit.getPluginManager( ).registerEvents( new PlayerMoves( plugin ) , plugin );
         if ( Bukkit.getPluginManager( ).getPlugin( "StaffCore" ) != null ) {
             c.sendMessage( utils.chat( utils.getString( "server_prefix" ) + "&a             Plugin &5STAFF-CORE " + Bukkit.getPluginManager( ).getPlugin( "StaffCore" ).getDescription( ).getVersion( ) + " &aFounded" ) );
             c.sendMessage( utils.chat( utils.getString( "server_prefix" ) + "&1---------------------------------------------------------" ) );
@@ -90,28 +82,27 @@ public final class main extends JavaPlugin {
             c.sendMessage( utils.chat( utils.getString( "server_prefix" ) + "&a               Current Warned Players: " + StaffCoreAPI.getWarnedPlayers( ).size( ) ) );
             c.sendMessage( utils.chat( utils.getString( "server_prefix" ) + "&1---------------------------------------------------------" ) );
         }
+        
         Bukkit.getServer( ).getScheduler( ).scheduleSyncRepeatingTask( this , ( ) -> {
-            for ( int i = 1; i <= utils.getInt( "server_selector.amount_of_servers" ); i++ ) {
-                SendMsg.getOnlinePlayersInSpecificServer( utils.getConfig( "server_selector.servers." + i + ".server" ) , utils.getServer( ) );
-                SendMsg.getServerStatus( utils.getConfig( "server_selector.servers." + i + ".server" ) , utils.getServer( ) );
+            for ( int i = 1; i <= utils.getItemInt( "server_selector.amount_of_servers" ); i++ ) {
+                SendMsg.getOnlinePlayersInSpecificServer( utils.getItemString( "server_selector.servers." + i + ".server" ) , utils.getServer( ) );
+                SendMsg.getServerStatus( utils.getItemString( "server_selector.servers." + i + ".server" ) , utils.getServer( ) );
             }
-            
-            
             for ( Player players : Bukkit.getOnlinePlayers( ) ) {
-                try {
+               // try {
                     if ( players.getOpenInventory().getTopInventory().getHolder() instanceof Menu ){
-                        for ( int servers = 1; servers <= utils.getInt( "server_selector.amount_of_servers" ); servers++ ) {
-                            players.getOpenInventory().getTopInventory().setItem( utils.getInt( "server_selector.servers." + servers + ".slot" ),
-                                    Menu.makeItem( utils.getConfig( "server_selector.servers." + servers + ".item" ) ,
-                                            utils.getConfig( "server_selector.servers." + servers + ".name" ) ,
-                                            utils.getBoolean( "server_selector.servers." + servers + ".enchanted" ) ,
-                                            utils.getConfig( "server_selector.servers." + servers + ".server" ) ,
+                        for ( int servers = 1; servers <= utils.getItemInt( "server_selector.amount_of_servers" ); servers++ ) {
+                            players.getOpenInventory().getTopInventory().setItem( utils.getItemInt( "server_selector.servers." + servers + ".slot" ),
+                                    Menu.makeItem( utils.getItemString( "server_selector.servers." + servers + ".item" ) ,
+                                            utils.getItemString( "server_selector.servers." + servers + ".name" ) ,
+                                            utils.getItemBoolean( "server_selector.servers." + servers + ".enchanted" ) ,
+                                            utils.getItemString( "server_selector.servers." + servers + ".server" ) ,
                                             utils.getLore( servers ) ));
                         }
                     }
-                } catch ( NullPointerException | ArrayIndexOutOfBoundsException ignored ) { }
+               // } catch ( NullPointerException | ArrayIndexOutOfBoundsException ignored ) { }
             }
-        } , 20L , 10L );
+        } , 20L , 20L );
         
     }
     
@@ -128,8 +119,6 @@ public final class main extends JavaPlugin {
     public void loadConfigManager( ){
         saveDefaultConfig( );
         saveConfig( );
-        this.locationsConfig = new locationsConfig( plugin );
-        locationsConfig.reloadConfig( );
         this.en_na = new EN_NA( plugin );
         en_na.reloadConfig( );
         this.es_cl = new ES_CL( plugin );
@@ -147,6 +136,14 @@ public final class main extends JavaPlugin {
         this.warns = new WarnConfig( plugin );
         this.warns.reloadConfig( );
          */
+    }
+    
+    public static PlayerMenuUtility getPlayerMenuUtility( Player p ){
+        if ( playerMenuUtilityMap.containsKey( p ) )
+            return playerMenuUtilityMap.get( p );
+        PlayerMenuUtility playerMenuUtility = new PlayerMenuUtility( p );
+        playerMenuUtilityMap.put( p , playerMenuUtility );
+        return playerMenuUtility;
     }
     
 }

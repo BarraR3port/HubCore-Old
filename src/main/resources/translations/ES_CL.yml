@@ -19,14 +19,12 @@ spawn:
   removed: "&cHas eliminado el spawn"
   tp_to_spawn: "&7Has llegado al spawn"
   tp_player_to_spawn: "&7Has enviado a &2%player% &7al spawn"
-
 # EditHub
 edithub:
   enabled: "&7Ahora puedes editar el Hub"
   enabled_other: "&7Ahora %player% puede editar el Hub"
   disabled: "&cYa no puedes editar el Hub"
   disabled_other: "&cAhora %player% no puede editar el Hub"
-
 # Connection
 serverconnection:
   connecting: "&7Conectando a &a%server%"
